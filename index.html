@@ -152,6 +152,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-堆栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/23/%E5%A0%86%E6%A0%88/">堆栈</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/23/%E5%A0%86%E6%A0%88/" class="archive-article-date">
+  	<time datetime="2020-03-23T10:34:37.656Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JVM（虚拟机）内存的划分"><a href="#JVM（虚拟机）内存的划分" class="headerlink" title="JVM（虚拟机）内存的划分"></a>JVM（虚拟机）内存的划分</h2><p>JVM运行时在内存中开辟一片内存区域，启动时在自己的内存区域中进行更细致的划分，因为虚拟机中每一片内存处理的方式都不同，所以要单独进行管理。</p>
+<p>JVM内存的划分有五片：</p>
+<ol>
+<li><p>寄存器 ；</p>
+</li>
+<li><p>本地方法区 ；</p>
+</li>
+<li><p>方法区 ；</p>
+</li>
+<li><p>栈内存 ；</p>
+</li>
+<li><p>堆内存 ；</p>
+</li>
+</ol>
+<h3 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h3><hr>
+<pre><code>栈内存:栈内存储存的是局部变量，凡是定义在方法中的都是局部变量（方法外是局部变量）。变量一旦离开自己的作用域就会被释放。栈内存的更新速度很快，因为局部变量的生命都很短。</code></pre><p>   堆内存：堆内存存储的是对象，凡是new建立的都是在堆中（在new时返回一个地址赋值给栈中的变量），也就是实体。实体用于封装数据，如果一个数据消失，实体依然可以用。堆里的实体不会像栈内存一样被释放，但是会被当成垃圾等待回收。（Java有垃圾回收机制不定时回收，但C++就需要自己手动delete）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/23/%E5%A0%86%E6%A0%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-包装类学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,7 +253,7 @@
         <h2 id="为什么要使用包装类"><a href="#为什么要使用包装类" class="headerlink" title="为什么要使用包装类"></a>为什么要使用包装类</h2><p>由于八大基本数据类型不具备面向对象的特性，不携带属性，也没有可以调用的方法。引用数据类型（类，接口，数组）继承了Object类，所以想要转换成String类型只需要调用一个toString()的方法即可，而基本数据类型就困难的多。为了解决此类问题，就有了包装类。</p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>自动装箱方法: 包装类 类名 = 对应属性</p>
 <p>包装类可直接进行数据的运算：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intrger obj = <span class="number">10</span>;  <span class="comment">//自动装箱</span></span><br><span class="line"></span><br><span class="line">Int num = obj;     <span class="comment">//自动拆箱</span></span><br><span class="line"></span><br><span class="line">System.out.println(num*obj)；</span><br><span class="line"></span><br><span class="line">输出结果为<span class="number">100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Integer obj = <span class="number">10</span>;  <span class="comment">//自动装箱</span></span><br><span class="line"></span><br><span class="line">Int num = obj;     <span class="comment">//自动拆箱</span></span><br><span class="line"></span><br><span class="line">System.out.println(num*obj)；</span><br><span class="line"></span><br><span class="line">输出结果为<span class="number">100</span></span><br></pre></td></tr></table></figure>
 
 
 
