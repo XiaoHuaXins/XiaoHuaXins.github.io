@@ -15,10 +15,13 @@
 <meta property="og:site_name" content="XiaoHuaXins">
 <meta property="og:description" content="类与对象方法的签名：方法名、方法参数。（不包括返回值） 方法的重载需要不同的签名。 this可以调用隐式函数、也可以调用该类的其他构造器。 初始化块：在一个类中声明。 StringBuffer是String的升级版，它可以直接在本内存单元进行字符串的修改，而不是String那样建立一个新的内存并引用。 继承调用构造其他构造器的语句只能放在本构造器的第一句。 一个对象变量可以指示多种实际类型的现象被">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:%5CUsers%5Cpro%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20200326182740.png">
+<meta property="og:image" content="c:%5CUsers%5Cpro%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20200327131047.png">
 <meta property="article:published_time" content="2020-03-23T13:31:06.278Z">
-<meta property="article:modified_time" content="2020-03-21T00:42:02.775Z">
+<meta property="article:modified_time" content="2020-03-27T05:42:04.033Z">
 <meta property="article:author" content="Yan Ruyu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5Cpro%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20200326182740.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoHuaXins" type="application/atom+xml">
   
@@ -185,8 +188,43 @@
 <p>hashCode是定义在Object类中的方法，因此每个对象都有一个默认的散列码，其值为对象的储存地址。</p>
 <p>标准的基本类型只要值相等，哈希值就相同</p>
 <p>同一个对象，与何时运行该程序无关。</p>
+<p>多态：单接口、多实现</p>
 <p>​    </p>
 <h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>概念：指在程序运行期间发现更多的类及属性的能力</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="线程的基本概念"><a href="#线程的基本概念" class="headerlink" title="线程的基本概念"></a>线程的基本概念</h3><p>并发：在某个时间段上，A任务和B任务都在运行。</p>
+<p>并行：在某个时间点上，A任务和B任务同时进行。</p>
+<p>线程：进程是线程的容器，一个进程有多个线程</p>
+<p>进程：进程内部一个独立执行的单元</p>
+<p>线程的创建：</p>
+<ul>
+<li><p>继承Thread类</p>
+</li>
+<li><p>实现Runnabl接口</p>
+</li>
+<li><p>实现Callable接口</p>
+</li>
+<li><p>线程池（Excutor）</p>
+<ul>
+<li><img src="C:%5CUsers%5Cpro%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20200326182740.png" alt="QQ截图20200326182740"></li>
+</ul>
+</li>
+</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>实现接口和继承Thread类比较：</p>
+<ul>
+<li>接口更适合多个相同的程序代码的线程，去共享一个资源（eg：多个售票口，但票的数量是一定的）</li>
+<li>接口可以避免java的单继承</li>
+<li>接口代码可以被多个线程共享，代码和线程独立</li>
+<li>线程池只能放入实现Runnable和Callable接口的线程，不支持继承Thread的类</li>
+<li>扩充：在java中每次程序运行至少启动两个线程，一个是main线程，一个是垃圾收集线程。</li>
+</ul>
+<p>Runnable和Callable接口的比较：</p>
+<ul>
+<li>实现Callable的接口可以有返回值，而Runnable接口不能</li>
+<li>Callable接口的call（）方法允许抛出异常，Runnable接口的run（）方法不予许抛出异常</li>
+<li>实现Callable接口的线程可以调用Future.cancel取消执行（可以动态监控线程的执行），而Runnable接口的线程不予许</li>
+</ul>
+<p>注意点：Callable接口支持返回结果，此时调用FurtureTask.get()方法实现，此方法会阻塞主线程直到获取“将来”结果，当不调用此方法是，主线程不会阻塞。（尽量在不需要并发的时候调用此方法）</p>
+<h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><p><img src="C:%5CUsers%5Cpro%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20200327131047.png" alt="QQ截图20200327131047"></p>
 
       
 
